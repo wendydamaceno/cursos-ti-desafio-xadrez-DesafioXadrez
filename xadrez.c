@@ -4,10 +4,11 @@ int main(){
     
     printf("\n*** Movimentação das Peças de Xadrez ***\n");
     
-    /*Nível Novato!
+    /*Nível Aventureiro!
       Torre move-se 5 casas para a direita;
       Bispo move-se 5 casas na diagonal para cima e direita;
-      Rainha move-se 8 casas para a esquerda.
+      Rainha move-se 8 casas para a esquerda;
+      Cavalo move- se 2 para cima, uma para a direita.
     */
 
     //Movimentação Torre - Usando a estrutura for
@@ -44,6 +45,22 @@ int main(){
         i++;
 
     } while (i < 8);
+
+    //Movimentação Cavalo - Usando Loop Aninhado
+
+    for (int i = 1; i <= 2; i++)
+    {
+        printf("Casa %d: Cima\n", i);
+    }
+    
+    int m = 1;
+
+    while (m <= 1)
+    {
+        printf("Casa %d: Direita\n", m);
+        m++;
+    }
+    
     
     
     return 0;
