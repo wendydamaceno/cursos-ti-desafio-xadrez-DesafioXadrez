@@ -1,67 +1,57 @@
 #include <stdio.h>
 
-int main(){
-    
-    printf("\n*** Movimentação das Peças de Xadrez ***\n");
-    
-    /*Nível Aventureiro!
-      Torre move-se 5 casas para a direita;
-      Bispo move-se 5 casas na diagonal para cima e direita;
-      Rainha move-se 8 casas para a esquerda;
-      Cavalo move- se 2 para cima, uma para a direita.
-    */
+// Função recursiva para a Torre (movendo para a direita)
+void moverTorre(int casas) {
+    if (casas == 0) return;
+    printf("Casa %d: Direita\n", casas);
+    moverTorre(casas - 1);
+}
 
-    //Movimentação Torre - Usando a estrutura for
- 
-    printf("Movimentação da Torre 5 casas para direita.\n");
+// Função recursiva para o Bispo (movendo na diagonal)
+void moverBispo(int casas, int atual) {
+    if (atual > casas) return;
+    printf("Casa %d: Cima, Direita\n", atual);
+    moverBispo(casas, atual + 1);
+}
 
-    for (int i = 0; i < 5; i++)
-    {
-       printf("Casa %d: Direita\n", i + 1);
-    }
-    
-    //Movimentação Bispo - Usando a estrutura while
+// Função recursiva para a Rainha (movendo para a esquerda)
+void moverRainha(int casas) {
+    if (casas == 0) return;
+    printf("Casa %d: Esquerda\n", casas);
+    moverRainha(casas - 1);
+}
 
-    printf("Movimentação do Bispo 5 casas na diagonal para cima e a direita\n");
-
-    int i = 0;
-
-    while (i < 5)
-    {
-        printf("Casa %d: Cima, direita\n", i + 1);
-        i++;
-    }
-    
-    //Movimentação Rainha - Usando a estrutura do-while
-
-    printf("Movimentação Rainha oito casas para a esquerda\n");
-
-    i = 0;
-
-    do
-    {
-        printf("Casa %d: Esquerda\n", i + 1);
-
-        i++;
-
-    } while (i < 8);
-
-    //Movimentação Cavalo - Usando Loop Aninhado
-
-    for (int i = 1; i <= 2; i++)
-    {
+// Função para movimentação do Cavalo com loops aninhados
+void moverCavalo() {
+    printf("Movimentação do Cavalo (duas para cima, uma para a direita)\n");
+    for (int i = 1; i <= 2; i++) {
         printf("Casa %d: Cima\n", i);
     }
-    
-    int m = 1;
-
-    while (m <= 1)
-    {
-        printf("Casa %d: Direita\n", m);
-        m++;
+    for (int j = 1; j <= 1; j++) {
+        printf("Casa %d: Direita\n", j);
     }
+}
+
+int main() {
+    printf("\n*** Movimentação das Peças de Xadrez ***\n\n");
     
+    // Movimentação Torre
+    printf("Movimentação da Torre 5 casas para direita:\n");
+    moverTorre(5);
+    printf("\n");
     
+    // Movimentação Bispo
+    printf("Movimentação do Bispo 5 casas na diagonal para cima e direita:\n");
+    moverBispo(5, 1);
+    printf("\n");
+    
+    // Movimentação Rainha
+    printf("Movimentação da Rainha 8 casas para a esquerda:\n");
+    moverRainha(8);
+    printf("\n");
+    
+    // Movimentação Cavalo
+    moverCavalo();
     
     return 0;
 }
